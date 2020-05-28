@@ -1,0 +1,27 @@
+
+plugins {
+  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4025' apply false
+}
+
+description = 'An opinionated build implementation.'
+group = 'com.brambolt.gradle'
+
+ext {
+  artifactId = 'brambolt-gradle-build'
+  pluginClass = 'com.brambolt.gradle.BuildPlugin'
+  pluginDisplayName = 'Brambolt Build plugin'
+  pluginId = 'com.brambolt.gradle.build'
+  pluginTags = [ 'build' ]
+  pluginWebsite = 'https://github.com/brambolt/gradle-build'
+  projectVersion = '2020.05.25'
+  vcsUrl = 'https://github.com/brambolt/gradle-build'
+}
+
+apply plugin: 'com.brambolt.gradle.pluginbuild'
+
+dependencies {
+  implementation 'com.jfrog.artifactory:com.jfrog.artifactory.gradle.plugin:latest.release'
+  implementation 'com.jfrog.bintray.gradle:gradle-bintray-plugin:latest.release'
+  implementation 'org.ajoberstar.grgit:grgit-gradle:latest.release'
+}
+
