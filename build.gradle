@@ -1,6 +1,6 @@
 
 plugins {
-  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4025' apply false
+  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4031' apply false
 }
 
 description = 'An opinionated build implementation.'
@@ -8,6 +8,17 @@ group = 'com.brambolt.gradle'
 
 ext {
   artifactId = 'brambolt-gradle-build'
+  developers = [[
+    email: 'stefan.sigurdsson@brambolt.com',
+    id: 'stefan.sigurdsson@brambolt.com',
+    name: 'Stefán Sigurðsson'
+  ]]
+  inceptionYear = '2017'
+  licenses = [[
+    id: 'Apache-2.0',
+    name: 'The Apache Software License, Version 2.0',
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  ]]
   pluginClass = 'com.brambolt.gradle.BuildPlugin'
   pluginDisplayName = 'Brambolt Build plugin'
   pluginId = 'com.brambolt.gradle.build'

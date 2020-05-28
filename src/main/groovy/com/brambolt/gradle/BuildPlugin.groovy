@@ -245,30 +245,7 @@ class BuildPlugin implements Plugin<Project> {
    * @param project The project to configure
    */
   void configurePublishing(Project project) {
-    project.publishing {
-      publications {
-        mavenJava(MavenPublication) {
-          artifactId = project.artifactId
-          groupId = project.group
-          version = project.version
-          from project.components.java
-          artifact(project.javadocJar)
-          artifact(project.sourceJar)
-          pom.withXml {
-            def root = asNode()
-            root.appendNode('description', project.description)
-            root.appendNode('inceptionYear', project.inceptionYear)
-            root.appendNode('name', project.name)
-            root.appendNode('url', project.vcsUrl)
-            root.children().last() + getPomMetaData(project)
-          }
-        }
-      }
-    }
-  }
-
-  def getPomMetaData(Project project) {
-    meta: {
+    def pomMetaData = {
       licenses {
         project.licenses.each { l ->
           license {
@@ -289,6 +266,26 @@ class BuildPlugin implements Plugin<Project> {
       }
       scm {
         url project.vcsUrl
+      }
+    }
+    project.publishing {
+      publications {
+        mavenJava(MavenPublication) {
+          artifactId = project.artifactId
+          groupId = project.group
+          version = project.version
+          from project.components.java
+          artifact(project.javadocJar)
+          artifact(project.sourceJar)
+          pom.withXml {
+            def root = asNode()
+            root.appendNode('description', project.description)
+            root.appendNode('inceptionYear', project.inceptionYear)
+            root.appendNode('name', project.name)
+            root.appendNode('url', project.vcsUrl)
+            root.children().last() + pomMetaData
+          }
+        }
       }
     }
   }
