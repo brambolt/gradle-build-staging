@@ -35,7 +35,7 @@ class BuildPlugin implements Plugin<Project> {
     'artifactId',
     'developers',
     'inceptionYear',
-    'licences',
+    'licenses',
     'projectVersion',
     'vcsUrl'
   ]
@@ -98,13 +98,16 @@ class BuildPlugin implements Plugin<Project> {
     if (!project.hasProperty(propertyName))
       return false
     Object value = project[propertyName]
-    if (null == value)
-      return false
-    if (value instanceof String || value instanceof GString)
-      return !value.toString().isEmpty()
-    if (value instanceof Collection)
-      return !(value as Collection).isEmpty()
-    true // Not null, not empty string or empty collection - fine then
+    switch (value) {
+      case null:
+        return false
+      case { it instanceof String || it instanceof GString }:
+        return !value.toString().isEmpty()
+      case { it instanceof Collection }:
+        return !(value as Collection).isEmpty()
+      default:
+        return true // Not null, not empty string or empty collection - okay
+    }
   }
 
   /**
