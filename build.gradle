@@ -1,6 +1,6 @@
 
 plugins {
-  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4031' apply false
+  id 'com.brambolt.gradle.pluginbuild' apply false
 }
 
 description = 'An opinionated build implementation.'
@@ -24,7 +24,7 @@ ext {
   pluginId = 'com.brambolt.gradle.build'
   pluginTags = [ 'build' ]
   pluginWebsite = 'https://github.com/brambolt/gradle-build'
-  projectVersion = '2020.05.25'
+  projectVersion = bramboltProjectVersion
   vcsUrl = 'https://github.com/brambolt/gradle-build'
 }
 
