@@ -3,7 +3,7 @@ plugins {
   id 'com.brambolt.gradle.pluginbuild' apply false
 }
 
-description = 'An opinionated build implementation.'
+description = 'The build implementation for the other Brambolt libraries.'
 group = 'com.brambolt.gradle'
 
 ext {
