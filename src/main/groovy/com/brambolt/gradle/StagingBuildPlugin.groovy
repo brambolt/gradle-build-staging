@@ -34,7 +34,7 @@ import static com.brambolt.gradle.PluginBuildPlugin.configurePlugins
 import static com.brambolt.gradle.PluginBuildPlugin.configureRepositories
 
 /**
- * Configures a Gradle build to build staging archives.
+ * Configures a Gradle build for staging archives.
  */
 class StagingBuildPlugin implements Plugin<Project> {
 
@@ -48,7 +48,7 @@ class StagingBuildPlugin implements Plugin<Project> {
     ARTIFACTORY_PLUGIN_ID,
     BINTRAY_PLUGIN_ID,
     'org.ajoberstar.grgit',
-    'com.brambolt.gradle.staging2'
+    'com.brambolt.gradle.staging'
   ]
 
   /**

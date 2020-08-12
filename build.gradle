@@ -51,5 +51,5 @@ dependencies {
   implementation "com.brambolt.gradle:brambolt-gradle-build-archive:${bramboltVersion}"
   implementation "com.brambolt.gradle:brambolt-gradle-build-plugin:${bramboltVersion}"
   implementation "com.brambolt.gradle:brambolt-gradle-velocity:${bramboltVersion}"
-  implementation "com.brambolt.gradle:brambolt-gradle-staging2:${bramboltVersion}"
+  implementation "com.brambolt.gradle:brambolt-gradle-staging:${bramboltVersion}"
 }
