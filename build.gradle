@@ -29,6 +29,7 @@ ext {
     name: 'Stefán Sigurðsson'
   ]]
   inceptionYear = '2017'
+  isGitHosted = true
   isOpenSource = true // Enables publishing to plugins.gradle.org and Bintray
   licenses = [[
     id: 'Apache-2.0',
@@ -53,3 +54,12 @@ dependencies {
   implementation "com.brambolt.gradle:brambolt-gradle-velocity:${bramboltVersion}"
   implementation "com.brambolt.gradle:brambolt-gradle-staging:${bramboltVersion}"
 }
+
+test {
+  testLogging {
+    outputs.upToDateWhen { false }
+    showStandardStreams = true
+  }
+}
+
+test.finalizedBy(':samples:runAll')
