@@ -21,6 +21,7 @@ import org.gradle.api.Project
 
 import static com.brambolt.gradle.PluginBuildPlugin.ARTIFACTORY_PLUGIN_ID
 import static com.brambolt.gradle.PluginBuildPlugin.BINTRAY_PLUGIN_ID
+import static com.brambolt.gradle.PluginBuildPlugin.GRGIT_PLUGIN_ID
 import static com.brambolt.gradle.PluginBuildPlugin.checkProjectProperties
 import static com.brambolt.gradle.PluginBuildPlugin.configureArtifactory
 import static com.brambolt.gradle.PluginBuildPlugin.configureBintray
@@ -32,6 +33,7 @@ import static com.brambolt.gradle.PluginBuildPlugin.configureJavaPlugin
 import static com.brambolt.gradle.PluginBuildPlugin.configurePluginInclusion
 import static com.brambolt.gradle.PluginBuildPlugin.configurePlugins
 import static com.brambolt.gradle.PluginBuildPlugin.configureRepositories
+import static com.brambolt.gradle.PluginBuildPlugin.logProperties
 
 /**
  * Configures a Gradle build for staging archives.
@@ -47,7 +49,7 @@ class StagingBuildPlugin implements Plugin<Project> {
     'maven-publish',
     ARTIFACTORY_PLUGIN_ID,
     BINTRAY_PLUGIN_ID,
-    'org.ajoberstar.grgit',
+    GRGIT_PLUGIN_ID,
     'com.brambolt.gradle.staging'
   ]
 
@@ -95,23 +97,6 @@ class StagingBuildPlugin implements Plugin<Project> {
     configureArtifactory(project)
     configureBintray(project)
     configureDefaultTasks(project)
-  }
-
-  /**
-   * Logs the required and derived project properties.
-   * @param project The project to configure
-   */
-  void logProperties(Project project) {
-    project.logger.info("""
-  Artifact id:          ${project.artifactId}
-  Branch:               ${project.vcsBranch}
-  Commit:               ${project.vcsCommit}
-  Description:          ${project.description}
-  Group:                ${project.group}
-  Name:                 ${project.name}
-  VCS URL:              ${project.vcsUrl}
-  Version:              ${project.version}
-""")
   }
 
   void configureStaging(Project project) {
