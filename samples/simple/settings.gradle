@@ -1,0 +1,14 @@
+
+pluginManagement {
+  repositories {
+    mavenLocal()
+    gradlePluginPortal()
+    mavenCentral()
+  }
+  plugins {
+    id 'com.brambolt.gradle.build.staging' version bramboltVersion
+  }
+}
+
+rootProject.name = 'brambolt-gradle-build-staging-sample-simple'
+

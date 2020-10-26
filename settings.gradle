@@ -25,4 +25,6 @@ pluginManagement {
   }
 }
 
-rootProject.name = 'gradle-build-staging'
+rootProject.name = 'brambolt-gradle-build-staging'
+
+include 'samples'
