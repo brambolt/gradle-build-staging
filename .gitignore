@@ -11,4 +11,5 @@
 .idea/libraries
 .idea/tasks.xml
 .idea/workspace.xml
-
+/samples/*/gradle/
+/samples/*/gradlew*
